@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "599320856331",
+    "project_id": "saberin-app",
+    "storage_bucket": "saberin-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599320856331:android:f102994b3ad14a34f7c40e",
+        "android_client_info": {
+          "package_name": "com.saberin.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfK6isx6LfDQg-HwpagAb3TxuU8DnAEWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
