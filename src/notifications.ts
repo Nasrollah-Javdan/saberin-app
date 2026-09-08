@@ -39,13 +39,44 @@ export async function registerForPushNotificationsAsync() {
     throw new Error('EAS projectId not found.');
   }
 
-  const token = (
+    const token = (
     await Notifications.getExpoPushTokenAsync({
       projectId,
     })
   ).data;
 
   console.log('Expo Push Token:', token);
+
+  // Register token on WordPress
+  try {
+    const response = await fetch(
+      'https://saberin-khonj.com/wp-json/saberin/v1/register',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token: token,
+          platform: Platform.OS,
+        }),
+      }
+    );
+
+    const result = await response.json();
+
+    console.log('WordPress registration:', result);
+
+    if (!response.ok) {
+      console.log(
+        'WordPress registration failed:',
+        response.status,
+        result
+      );
+    }
+  } catch (error) {
+    console.log('WordPress connection error:', error);
+  }
 
   return token;
 }
